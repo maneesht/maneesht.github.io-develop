@@ -1,0 +1,32 @@
+html(ng-app="m-resume")
+    head
+        link(rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css")
+        script(src ="lib/angular/angular.js")
+        script(src ="lib/angular-ui-router/release/angular-ui-router.js")
+        script(src="lib/angular-bootstrap/ui-bootstrap.js")
+        script(src="lib/angular-animate/angular-animate.js")
+        script(src ="app/app.js")
+    body
+        nav.navbar.navbar-inverse
+            .container-fluid
+                .navbar-header
+                    button.navbar-toggle(ng-click="isCollapsed = !isCollapsed")
+                        span.sr-only
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand
+                        img(src="images/maneesh-android.jpg" height="30" width="30")
+                .navbar-collapse(ng-init="isCollapsed=true" collapse="isCollapsed")
+                    ul.nav.navbar-nav
+                        li
+                            a(ui-sref="home") Home
+                        li.dropdown(dropdown)
+                            a.dropdown-toggle(dropdown-toggle) Background <span class="caret"></span>
+                            ul.dropdown-menu(dropdown-menu)
+                                li 
+                                    a(ui-sref="experience") Experience
+                                    a(ui-sref="skills") Skills
+
+        ui-view
+
